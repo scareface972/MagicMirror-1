@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Testing</title>
+<!--link rel="stylesheet" type="text/css" href="./style.css"-->
+<style>
+body {
+    background-color: black;
+}
+
+standard {
+    color: white;
+    font-size: 100%;
+}
+
+time {
+    font-size: 350%;
+}
+
+div.box {
+    position: relative;
+    height: 97vh;
+}
+div.show_time {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+</style>
+
+</head>
+
+<body>
+<div class="box">
+<div class="show_time">
+
+
+    <standard>
+<script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+    $(document).ready(
+            function() {
+                setInterval(function() {
+                    var now = new Date();
+                    var hour = now.getHours();
+                    if (hour < 10) {
+                    hour = "0" + hour
+                    }
+                    var minute = now.getMinutes();
+                    if (minute < 10) {
+                        minute = "0" + minute
+                    }
+
+                    var day_nr = now.getDay();
+                    var days_array = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    day_nr = days_array[day_nr];
+                    var day = now.getDate();
+                    var month = now.getMonth();
+                    month = month+1;
+                    if (month < 10) {
+                        month = "0" + month
+                    }
+                    var year = now.getFullYear();
+
+                    $('#show').text(
+                            '<time>' + hour + ':' + minute + '</time><br />' + day_nr + ', ' + day + '.' + month + '.' + year);
+                }, 3000);
+            });
+</script>
+    </standard>
+</div></div>
+</body>
+</html>
